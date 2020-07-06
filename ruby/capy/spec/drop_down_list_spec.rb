@@ -1,4 +1,4 @@
-describe 'Caixa de seleção', :drop do
+describe 'Caixa de opções', :drop do
 
     # :drop e uma tag para ser executado 
  
