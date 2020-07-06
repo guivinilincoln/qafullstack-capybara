@@ -54,6 +54,7 @@ Para firefox: https://github.com/mozilla/geckodriver/releases
 Alterar o ``` config.default_driver = :selenium```
 
 Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
+Extra: Para saber qual são as pastas do PATH, utilizado o comando echo %path%.....
 
 
 
