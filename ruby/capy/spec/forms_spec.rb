@@ -6,7 +6,7 @@ describe 'Forms' do
         fill_in 'username', with: 'stark' # usado para preencher campo input type por name (name: username)
         fill_in 'passId', with: 'jarvis!' # usado para preencher campo input type por Id (id: passId)
 
-        click_button 'Login' # usado para clicar em botão com texto login
+        click_button 'Login' # usado para clicar em botão com texto login usando value
         
         find('#flash').visible? #find é usado para localizar um seletor especifico. # = buscar por id / visible retorna "true/false" se existir o elemento
 
@@ -44,7 +44,7 @@ describe 'Forms' do
         click_button 'Login' # usado para clicar em botão com texto login
 
         expect(find('#flash').text).to include 'O usuário informado não está cadastrado!' # Captura o texto e verificar se contem 
-        expect(find('#flash')).to have_content 'O usuário informado não está cadastrado!' # Pergunta se no elemento contem no elemento
+        expect(find('#flash')).to have_content 'O usuário informado não está cadastrado!' # Pergunta se no elemento contem no o text
 
 
     end
