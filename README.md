@@ -46,10 +46,10 @@ end
 
 - Não esquecer do WEBDRIVER
 
-Para [Google Chrome] (https://chromedriver.chromium.org/downloads)
+Para [Google Chrome](https://chromedriver.chromium.org/downloads)
  	- Versão deve ser a mesma do navegador
 
-Para [Firefox] (https://github.com/mozilla/geckodriver/releases)
+Para [Firefox](https://github.com/mozilla/geckodriver/releases)
 
 Alterar o `config.default_driver = :selenium`
 
@@ -89,11 +89,11 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 #### Utilizando escopo:
 
 ```sh
-	 within('#signup') do  #Escopo
-            find('input[name=username]').set 'Teste22222'
-            find('input[name=password]').set '1234!'
-            click_link 'Criar Conta' #no pagina o elemento é um <a>, logo temos que usar click link
-        end
+	within('#signup') do  #Escopo
+        find('input[name=username]').set 'Teste22222'
+        find('input[name=password]').set '1234!'
+        click_link 'Criar Conta' #no pagina o elemento é um <a>, logo temos que usar click link
+    end
 ```
 
 #### Busca por Ids Dinamicos:
@@ -102,7 +102,7 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
         find('input[id$=UsernameInput]').set 'GuilhermeTest' # expressão regular termina
         find('input[id^=PasswordInput]').set '123456@' #expressão regular começa com
         find('a[id*=GetStartedButton').click # expressão regular Contém 
-     end
+    end
 ```
 
 #### Iframe: 
@@ -110,19 +110,16 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 ```sh
 	- Bom:
 		within_frame('burgerId') do
-
 			produto =  find('.menu-item-info-box', text: 'REFRIGERANTE')
 			produto.find('a').click
 			expect(find('#cart')).to have_content 'R$ 4,50'
-			
 		end
 ```
 ```sh
 	- Ruim:
-
 		script = '$(".box-iframe").attr("id", "tempId");' # Sem acesso ao  codigo fonte ou o dev não quer colocar Id
-        page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
-        within_frame('tempId') do
-            expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
-       	 end
+    	page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
+    	within_frame('tempId') do
+         	expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
+    	 end
 ```
