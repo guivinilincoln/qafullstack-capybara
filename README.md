@@ -118,7 +118,7 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 ```sh
 	- Ruim:
 		script = '$(".box-iframe").attr("id", "tempId");' # Sem acesso ao  codigo fonte ou o dev não quer colocar Id
-    	page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
+    		page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
     		within_frame('tempId') do
          		expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
     		end
@@ -141,7 +141,7 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 	- Para executar os testes com resolução determinada, adicionar essa configurarção dentro do `spec_helper.br`.
 ```sh
 	config.before(:example)do
-    	page.current_window.resize_to(1280, 800)
+    	 	page.current_window.resize_to(1280, 800)
   	end
 ```
 
