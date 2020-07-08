@@ -155,7 +155,9 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
     	page.save_screenshot('log/' +nome + '.png')
 	 end
 ```
+
 	- Se queiser que tire um Screenshot adicionar. 
+	
 ```sh
 	page.save_screenshot('log/' +nome + '.png') if e.exception 
 ```
