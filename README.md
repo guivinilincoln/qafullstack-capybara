@@ -148,7 +148,7 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 
 #### Screenshot:
 
- 	- Adicionar essa configurarção dentro do `spec_helper.br`.
+ - Adicionar essa configurarção dentro do `spec_helper.br`.
 ```sh
 	 config.after(:exemple) do |e|
     	nome = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr(' ', '_')
@@ -156,7 +156,7 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 	 end
 ```
 
-	- Se queiser que tire um Screenshot adicionar. 
+- Se queiser que tire um Screenshot adicionar. 
 	
 ```sh
 	page.save_screenshot('log/' +nome + '.png') if e.exception 
