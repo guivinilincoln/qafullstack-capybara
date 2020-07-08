@@ -59,4 +59,60 @@ Extra: Para saber qual são as pastas do PATH, utilizado o comando echo %path%..
 
 
 Comandos:
+
+Essencial:
+
 	Visit 'SITE' -----> Utilziado para fazer o acesso ao site
+	expect(page.title).to eql "Training Wheels Protocol" -----> Utilizado esperar um resultado
+	fill_in 'username', with: 'seu dado'  -----> Utilizado para preencher um campo name/id
+	click_button 'Enviar' -----> Utilizado para clicar em botões por name
+	find('#flash').visible? -----> Utilizado para saber se o elemto esta na tela, retorna true/false
+			Find com expresções regulares:
+				find('img[alt^=Homem]')#começa com
+       			find('img[alt*=Aran]')#Contém
+        		find('img[alt$=Aranha]')#Termina com
+	find('.team-stark .column') ------> Busca po classe pai (.team...) e (.column) é a filha, elemento alvo
+
+
+
+Buscadores:
+	#flash = buscar por id
+	.select2-selection--single = buscar por class
+	input[value=guardians] = buscar utilizando CSS selector pelo atributo value, no exemplo utilizamnos input, porem pode ser por img,a,div e etc..
+	
+
+Utilizando escopo:
+
+	 within('#signup') do  #Escopo
+            find('input[name=username]').set 'Teste22222'
+            find('input[name=password]').set '1234!'
+            click_link 'Criar Conta' #no pagina o elemento é um <a>, logo temos que usar click link
+        end
+
+Busca por Ids Dinamicos:
+
+	it 'Castro' do
+        find('input[id$=UsernameInput]').set 'GuilhermeTest' # expressão regular termina
+        find('input[id^=PasswordInput]').set '123456@' #expressão regular começa com
+        find('a[id*=GetStartedButton').click # expressão regular Contém 
+    end
+
+
+Iframe: 
+	Bom:
+		within_frame('burgerId') do
+
+				produto =  find('.menu-item-info-box', text: 'REFRIGERANTE')
+				produto.find('a').click
+				expect(find('#cart')).to have_content 'R$ 4,50'
+			
+		end
+	Ruim:
+
+		script = '$(".box-iframe").attr("id", "tempId");' # solução para quado o não tem acesso ao codigo fonte ou o dev não quer colocar Id
+        page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
+
+         within_frame('tempId') do
+            expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
+       	end
+
