@@ -9,7 +9,7 @@ Dentro do arquivio gemfile adicionar o seguinte codigos:
 	gem "rspec", "3.9.0"
 	gem "selenium-webdriver", "3.142.7"
 	gem "ffi" , "1.12.2"
-´´´
+```
 Obs: Como no java que temos o ` mvnrepository `, no Ruby temos `rubygems.org` onde encontramos nossas dependencias.
 
 Após salvar o arquivo gemfile, executar o comando: `bundle install`
@@ -40,7 +40,7 @@ Capybara.configure do |config|
   
 end
 
-``` 
+```
 
 ### Atenção !!!
 
