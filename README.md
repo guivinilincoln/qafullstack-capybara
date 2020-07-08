@@ -151,8 +151,8 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
  - Adicionar essa configurarção dentro do `spec_helper.br`.
 ```sh
 	 config.after(:exemple) do |e|
-    	nome = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr(' ', '_')
-    	page.save_screenshot('log/' +nome + '.png')
+    		nome = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr(' ', '_')
+    		page.save_screenshot('log/' +nome + '.png')
 	 end
 ```
 
