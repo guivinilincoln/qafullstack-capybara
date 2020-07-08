@@ -99,10 +99,10 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 #### Busca por Ids Dinamicos:
 ```sh
 	it 'Castro' do
-        find('input[id$=UsernameInput]').set 'GuilhermeTest' # expressão regular termina
-        find('input[id^=PasswordInput]').set '123456@' #expressão regular começa com
-        find('a[id*=GetStartedButton').click # expressão regular Contém 
-    end
+        	find('input[id$=UsernameInput]').set 'GuilhermeTest' # expressão regular termina
+        	find('input[id^=PasswordInput]').set '123456@' #expressão regular começa com
+        	find('a[id*=GetStartedButton').click # expressão regular Contém 
+    	end
 ```
 
 #### Iframe: 
@@ -119,7 +119,45 @@ Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
 	- Ruim:
 		script = '$(".box-iframe").attr("id", "tempId");' # Sem acesso ao  codigo fonte ou o dev não quer colocar Id
     	page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
-    	within_frame('tempId') do
-         	expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
-    	 end
+    		within_frame('tempId') do
+         		expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
+    		end
 ```
+
+#### Headless: 
+	- Para executar os testes em headless, adicionar essa configurarção dentro do `spec_helper.br` dentro da chave Capybara.configure
+```sh
+	config.default_driver = :selenium_chrome.headless
+```
+
+#### URL padrão: 
+	- Para executar os testes com URL padrão, adicionar essa configurarção dentro do `spec_helper.br` dentro da chave Capybara.configure
+```sh
+	 config.app_host = 'URL PADRÃO'
+```
+
+#### Dimensão da janela:
+
+	- Para executar os testes com resolução determinada, adicionar essa configurarção dentro do `spec_helper.br`.
+```sh
+	config.before(:example)do
+    	page.current_window.resize_to(1280, 800)
+  	end
+```
+
+
+#### Screenshot:
+
+ 	- Adicionar essa configurarção dentro do `spec_helper.br`.
+```sh
+	 config.after(:exemple) do |e|
+    	nome = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr(' ', '_')
+    	page.save_screenshot('log/' +nome + '.png')
+	 end
+```
+	- Se queiser que tire um Screenshot adicionar. 
+```sh
+	page.save_screenshot('log/' +nome + '.png') if e.exception 
+```
+
+

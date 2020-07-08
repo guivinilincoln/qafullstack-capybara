@@ -1,7 +1,7 @@
 describe '', :drag do
 
     before(:each)do
-        visit 'https://training-wheels-protocol.herokuapp.com/drag_and_drop'
+        visit 'drag_and_drop'
     end
 
     #para localizar classe utilizar $('. nome da classe')

@@ -1,7 +1,7 @@
 describe 'Uploader File', :up do
 
     before(:each) do
-        visit 'https://training-wheels-protocol.herokuapp.com/upload'
+        visit 'upload'
         @arquivo = Dir.pwd + '/spec/fixtures/arquivo.txt' #rDir.pwd etorna o caminho do diretorio do projeto
         @img = Dir.pwd + '/spec/fixtures/img.jpg'
         

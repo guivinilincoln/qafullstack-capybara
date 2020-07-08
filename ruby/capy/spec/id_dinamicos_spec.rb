@@ -1,7 +1,7 @@
 describe 'IDs Dinâmicos', :idsDin do
 
     before(:each) do
-        visit 'https://training-wheels-protocol.herokuapp.com/access'
+        visit 'access'
     end
 
     it 'Castro' do

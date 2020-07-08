@@ -1,7 +1,7 @@
-describe 'Forms' do
+describe 'Forms', :forms do
 
     it 'login com sucesso'do
-        visit 'https://training-wheels-protocol.herokuapp.com/login'
+        visit 'login'
 
         fill_in 'username', with: 'stark' # usado para preencher campo input type por name (name: username)
         fill_in 'passId', with: 'jarvis!' # usado para preencher campo input type por Id (id: passId)
@@ -23,7 +23,7 @@ describe 'Forms' do
     end
 
     it 'Login com senha incorreta' do
-        visit 'https://training-wheels-protocol.herokuapp.com/login'
+        visit 'login'
 
         fill_in 'username', with: 'stark' # usado para preencher campo input type por name (name: username)
         fill_in 'passId', with: 'jarvis' # usado para preencher campo input type por Id (id: passId)
@@ -38,7 +38,7 @@ describe 'Forms' do
 
     it 'usuaio nao cadastrado' do
 
-        visit 'https://training-wheels-protocol.herokuapp.com/login'
+        visit 'login'
 
 
         click_button 'Login' # usado para clicar em botão com texto login
@@ -48,6 +48,5 @@ describe 'Forms' do
 
 
     end
-
 
 end

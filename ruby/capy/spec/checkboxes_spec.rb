@@ -1,7 +1,7 @@
 describe 'Caixas de selecção', :check do
 
     before(:each)do
-        visit 'https://training-wheels-protocol.herokuapp.com/checkboxes'
+        visit 'checkboxes'
     end
 
     it 'Marcando uma opção 1' do
