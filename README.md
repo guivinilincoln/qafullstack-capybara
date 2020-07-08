@@ -1,7 +1,7 @@
 # Automação de aplicação Web com Ruby/Capybara
 
-Para criar o gemfile utilziar o comando `bundle init´ esse comando vai criar a estrutura principal do nosso projeto em Ruby.
-Obs: Caso o comando não funcione, utilizar o comando `gem install bundler´ esse comando instala o bundler nosso gerenciador de bibliotecas Ruby.
+Para criar o gemfile utilziar o comando `bundle init` esse comando vai criar a estrutura principal do nosso projeto em Ruby.
+Obs: Caso o comando não funcione, utilizar o comando `gem install bundler` esse comando instala o bundler nosso gerenciador de bibliotecas Ruby.
 
 Dentro do arquivio gemfile adicionar o seguinte codigos:
 ```sh
@@ -44,21 +44,22 @@ end
 
 ### Atenção !!!
 
--Não esquecer do WEBDRIVER
+- Não esquecer do WEBDRIVER
 
 Para [Google Chrome] (https://chromedriver.chromium.org/downloads)
  	- Versão deve ser a mesma do navegador
 
 Para [Firefox] (https://github.com/mozilla/geckodriver/releases)
 
-Alterar o ``` config.default_driver = :selenium```
+Alterar o `config.default_driver = :selenium`
 
 Colar o driver dentro da pasta Windows(Essa pasta é uma pasta PATH)
-Extra: Para saber qual são as pastas do PATH, utilizado o comando echo %path%.....
+
+ - Extra: Para saber qual são as pastas do PATH, utilizado o comando `echo %path%`.....
 
 
 
-#### Comandos:
+### Comandos:
 
 #### Essencial:
 | Comando | Descrição |
@@ -71,9 +72,9 @@ Extra: Para saber qual são as pastas do PATH, utilizado o comando echo %path%..
 |find('.team-stark .column')|Busca po classe pai (.team...) e (.column) é a filha, elemento alvo|
 
 #### Find com expresções regulares:
-				-find('img[alt^=Homem]')#começa com
-       			-find('img[alt*=Aran]')#Contém
-        		-find('img[alt$=Aranha]')#Termina com
+		-find('img[alt^=Homem]')#começa com
+       	-find('img[alt*=Aran]')#Contém
+        -find('img[alt$=Aranha]')#Termina com
 	
 
 
@@ -95,34 +96,33 @@ Extra: Para saber qual são as pastas do PATH, utilizado o comando echo %path%..
         end
 ```
 
-Busca por Ids Dinamicos:
+#### Busca por Ids Dinamicos:
 ```sh
 	it 'Castro' do
         find('input[id$=UsernameInput]').set 'GuilhermeTest' # expressão regular termina
         find('input[id^=PasswordInput]').set '123456@' #expressão regular começa com
         find('a[id*=GetStartedButton').click # expressão regular Contém 
-    end
+     end
 ```
 
-Iframe: 
+#### Iframe: 
 
 ```sh
-	Bom:
+	- Bom:
 		within_frame('burgerId') do
 
-				produto =  find('.menu-item-info-box', text: 'REFRIGERANTE')
-				produto.find('a').click
-				expect(find('#cart')).to have_content 'R$ 4,50'
+			produto =  find('.menu-item-info-box', text: 'REFRIGERANTE')
+			produto.find('a').click
+			expect(find('#cart')).to have_content 'R$ 4,50'
 			
 		end
 ```
 ```sh
-	Ruim:
+	- Ruim:
 
-		script = '$(".box-iframe").attr("id", "tempId");' # solução para quado o não tem acesso ao codigo fonte ou o dev não quer colocar Id
+		script = '$(".box-iframe").attr("id", "tempId");' # Sem acesso ao  codigo fonte ou o dev não quer colocar Id
         page.execute_script(script) # comando do capybara, que roda um script dentro da pagina
-
-         within_frame('tempId') do
+        within_frame('tempId') do
             expect(find('#cart')).to have_content 'Seu carrinho está vazio!'
-       	end
+       	 end
 ```
